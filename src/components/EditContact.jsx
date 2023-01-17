@@ -4,9 +4,9 @@ import axios from "axios";
 export default function EditContact(props) {
   const { contact, setContacts, contacts } = props;
 
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState(contact.acf.name);
+  const [phone, setPhone] = useState(contact.acf.phone);
+  const [email, setEmail] = useState(contact.acf.email);
   // const [image, setImage] = useState([]);
 
   const headerConfig = {
