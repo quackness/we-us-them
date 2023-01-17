@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-
 export default function AddContact(props) {
-
   const { contacts, setContacts } = props;
 
   const [name, setName] = useState("");
@@ -17,15 +15,58 @@ export default function AddContact(props) {
     },
   };
 
+  function onSubmitForm(e) {
+    e.preventDefault();
+    console.log(e.currentTarget);
+    const file = e.currentTarget["file"].files[0];
+    console.log("file", file);
 
+    const formData = new FormData();
+    formData.append("file", file);
+    console.log("formData", formData);
 
+    // acf fields were null, fixed it by switching acf to fields 
+    // https://community.n8n.io/t/wordpress-custom-post-type-with-acf-fields/13171/28
 
+    console.log(image);
+    console.log(name);
+    axios
+      .post(
+        `http://localhost/wordpress/wp-json/wp/v2/media`,
+        formData,
+        headerConfig
+      )
+      .then((response) => {
+        const newImage = response.data;
+        console.log("newImage", newImage);
 
-  function onSubmitForm() {
-    
+        const contact = {
+          fields: {
+            name,
+            phone,
+            email,
+          },
+          featured_media: newImage.id,
+          status: "publish",
+        };
+
+        return axios
+          .post(
+            `http://localhost/wordpress/wp-json/wp/v2/contacts`,
+            contact,
+            headerConfig
+          )
+          .then((response) => {
+            const newPerson = response.data;
+            console.log("newPerson", newPerson);
+            const newElement = [newPerson, ...contacts];
+            setContacts(newElement);
+            // setContacts((oldState) => {
+            //   return oldState.unshift(newPerson);
+            // });
+          });
+      });
   }
-
-
 
   return (
     <>
