@@ -30,7 +30,7 @@ export default function ContactPage(props) {
     <div>
       <Link to="/">Go back</Link>
     </div>
-    <div>  {ContactPage.acf.name}  {ContactPage.acf.phone}</div>
+    <div> This is a card of {ContactPage.acf.name}, their phone number is {ContactPage.acf.phone} and email address is {ContactPage.acf.email}.</div>
     </>
   );
 }
