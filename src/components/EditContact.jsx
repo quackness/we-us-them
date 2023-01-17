@@ -8,6 +8,12 @@ export default function EditContact(props) {
   const [email, setEmail] = useState("");
   // const [image, setImage] = useState([]);
 
+  const headerConfig = {
+    headers: {
+      Authorization: `Bearer ${process.env.REACT_APP_AUTHORIZATION}`,
+    },
+  };
+
   function onSubmitEditForm(e) {}
 
   return (
