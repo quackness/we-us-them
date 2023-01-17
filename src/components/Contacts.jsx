@@ -6,6 +6,7 @@ import AddContact from "./AddContact";
 export default function Contacts() {
   const [contacts, setContacts, contact] = useState([]);
 
+
   useEffect(() => {
     axios
       .get(`http://localhost/wordpress/wp-json/wp/v2/contacts`)
@@ -22,6 +23,7 @@ export default function Contacts() {
         setContacts([...response.data]);
       });
   }, []);
+
 
   
 
@@ -54,4 +56,5 @@ export default function Contacts() {
       </div>
     </>
   );
+            
 }

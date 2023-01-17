@@ -66,6 +66,9 @@ export default function AddContact(props) {
             setContacts(newElement);
           });
       });
+      setName("");
+      setPhone("");
+      setEmail("");
   }
 
   return (
