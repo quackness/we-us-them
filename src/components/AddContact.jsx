@@ -64,9 +64,6 @@ export default function AddContact(props) {
             const newElement = [newPerson, ...contacts];
             console.log("newElement>>>>", newElement);
             setContacts(newElement);
-            // setContacts((oldState) => {
-            //   return oldState.unshift(newPerson);
-            // });
           });
       });
   }
