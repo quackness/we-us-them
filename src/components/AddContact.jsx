@@ -3,11 +3,13 @@ import axios from "axios";
 
 export default function AddContact(props) {
   const { contacts, setContacts } = props;
+  console.log("contacts", contacts)
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [image, setImage] = useState([]);
+  const [loaded, setLoaded] = useState("");
 
   const headerConfig = {
     headers: {
@@ -25,7 +27,7 @@ export default function AddContact(props) {
     formData.append("file", file);
     console.log("formData", formData);
 
-    // acf fields were null, fixed it by switching acf to fields 
+    // acf fields were null, fixed it by switching acf to fields
     // https://community.n8n.io/t/wordpress-custom-post-type-with-acf-fields/13171/28
 
     console.log(image);
@@ -59,7 +61,9 @@ export default function AddContact(props) {
           .then((response) => {
             const newPerson = response.data;
             console.log("newPerson", newPerson);
+            console.log("contacts", contacts);
             const newElement = [newPerson, ...contacts];
+            console.log("newElement>>>>", newElement);
             setContacts(newElement);
             // setContacts((oldState) => {
             //   return oldState.unshift(newPerson);
