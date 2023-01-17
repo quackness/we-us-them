@@ -1,8 +1,17 @@
 export default function AddContact() {
+
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [image, setImage] = useState([]);
+
+
+
+
   function onSubmitForm() {}
   return (
     <>
-      <div className="addBookButton">
+      <div className="addContactButton">
         <button
           type="button"
           className="btn btn-warning col-6"
