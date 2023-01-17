@@ -7,7 +7,9 @@ export default function SingleContact(props) {
   const [image, setImage] = useState("");
 
   const config = {
-    Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L3dvcmRwcmVzcyIsImlhdCI6MTY3MzQ1NDg2NiwibmJmIjoxNjczNDU0ODY2LCJleHAiOjE2NzQwNTk2NjYsImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19.RudeK12GRHjgqp-UmBW6opDexmhBgiZrv3HyQq9lFIY`,
+    headers: {
+      Authorization: `Bearer ${process.env.REACT_APP_AUTHORIZATION}`,
+    },
   };
 
   const navigate = useNavigate();
