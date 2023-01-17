@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function EditContact(props) {
   const { contact, setContacts, contacts } = props;
@@ -14,7 +15,38 @@ export default function EditContact(props) {
     },
   };
 
-  function onSubmitEditForm(e) {}
+  function onSubmitEditForm(e) {
+    e.preventDefault();
+    console.log(e.currentTarget);
+
+    const contactData = {
+      fields: {
+        name,
+        phone,
+        email,
+      },
+      // featured_media: newImage.id,
+      status: "publish",
+    };
+    return axios
+      .post(
+        `http://localhost/wordpress/wp-json/wp/v2/contacts/${contact.id}`,
+        contactData,
+        headerConfig
+      )
+      .then((response) => {
+        const editedContact = response.data;
+        console.log("editedContact", editedContact);
+        const newElement = [editedContact, ...contacts];
+        setContacts(newElement);
+        axios
+          .get(`http://localhost/wordpress/wp-json/wp/v2/contacts`)
+          .then(function (res) {
+            setContacts([...res.data]);
+          })
+          .catch((err) => console.log(err));
+      }, []);
+  }
 
   return (
     <>
@@ -100,13 +132,13 @@ export default function EditContact(props) {
                 >
                   Close
                 </button>
-                {/* <button
+                <button
                   type="submit"
                   class="btn btn-primary"
                   data-bs-dismiss="modal"
                 >
                   Edit a contact
-                </button> */}
+                </button>
               </div>
             </form>
           </div>
