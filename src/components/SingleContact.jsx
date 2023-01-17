@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import EditContact from "./EditContact";
 
 export default function SingleContact(props) {
   const { id, contact, setContacts, contacts } = props;
@@ -51,9 +52,11 @@ export default function SingleContact(props) {
         <td>{contact.acf.phone}</td>
         <td>{contact.acf.email}</td>
         <td>
-          <button type="button" className="btn btn-success">
+        <EditContact contact={contact} setContacts={setContacts} contacts={contacts} />
+          {/* <button type="button" className="btn btn-success">
             Edit
-          </button>
+          </button> */}
+      
         </td>
         <td>
           <button
