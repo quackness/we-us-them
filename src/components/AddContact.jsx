@@ -9,7 +9,7 @@ export default function AddContact(props) {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [image, setImage] = useState([]);
-  const [loaded, setLoaded] = useState("");
+
 
   const headerConfig = {
     headers: {
