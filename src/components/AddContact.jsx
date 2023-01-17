@@ -1,14 +1,21 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+
 export default function AddContact() {
 
+  
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [image, setImage] = useState([]);
 
+  function onSubmitForm() {
+    
+  }
 
 
 
-  function onSubmitForm() {}
   return (
     <>
       <div className="addContactButton">
@@ -52,8 +59,8 @@ export default function AddContact() {
                     type="text"
                     class="form-control"
                     id="title"
-                    // value={title}
-                    // onChange={(e) => setTitle(e.target.value)}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                   />
 
                   <label for="content" class="form-label">
@@ -64,8 +71,8 @@ export default function AddContact() {
                     type="text"
                     class="form-control"
                     id="content"
-                    // value={content}
-                    // onChange={(e) => setContent(e.target.value)}
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                   />
 
                   <label for="excerpt" class="form-label">
@@ -75,8 +82,8 @@ export default function AddContact() {
                     type="text"
                     class="form-control"
                     id="excerpt"
-                    // value={excerpt}
-                    // onChange={(e) => setExcerpt(e.target.value)}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
 
                   <label for="image" class="form-label">
