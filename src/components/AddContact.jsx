@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 
-export default function AddContact() {
+export default function AddContact(props) {
 
-  
+  const { contacts, setContacts } = props;
+
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
