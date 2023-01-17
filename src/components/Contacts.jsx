@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import SingleContact from "./SingleContact";
 
-
 export default function Contacts() {
   const [contacts, setContacts, contact] = useState([]);
 
@@ -16,8 +15,6 @@ export default function Contacts() {
 
   return (
     <>
-    
-
       <div>
         <table className="table-bordered">
           <thead>
