@@ -3,13 +3,12 @@ import axios from "axios";
 
 export default function AddContact(props) {
   const { contacts, setContacts } = props;
-  console.log("contacts", contacts)
+  console.log("contacts", contacts);
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [image, setImage] = useState([]);
-
 
   const headerConfig = {
     headers: {

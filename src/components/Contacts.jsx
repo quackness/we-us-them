@@ -16,7 +16,7 @@ export default function Contacts() {
 
   return (
     <>
-      <AddContact contacts={contacts} setContacts={setContacts}/>
+      <AddContact contacts={contacts} setContacts={setContacts} />
 
       <div>
         <table className="table-bordered">

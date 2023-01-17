@@ -27,10 +27,14 @@ export default function ContactPage(props) {
 
   return (
     <>
-    <div>
-      <Link to="/">Go back</Link>
-    </div>
-    <div> This is a card of {ContactPage.acf.name}, their phone number is {ContactPage.acf.phone} and email address is {ContactPage.acf.email}.</div>
+      <div>
+        <Link to="/">Go back</Link>
+      </div>
+      <div>
+        {" "}
+        This is a card of {ContactPage.acf.name}, their phone number is{" "}
+        {ContactPage.acf.phone} and email address is {ContactPage.acf.email}.
+      </div>
     </>
   );
 }
