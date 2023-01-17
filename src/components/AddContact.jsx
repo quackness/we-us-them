@@ -11,6 +11,16 @@ export default function AddContact(props) {
   const [email, setEmail] = useState("");
   const [image, setImage] = useState([]);
 
+  const headerConfig = {
+    headers: {
+      Authorization: `Bearer ${process.env.REACT_APP_AUTHORIZATION}`,
+    },
+  };
+
+
+
+
+
   function onSubmitForm() {
     
   }
