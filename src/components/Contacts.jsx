@@ -1,11 +1,47 @@
-import axios from "axios"
+import axios from "axios";
+import { useState, useEffect } from "react";
+import SingleContact from "./SingleContact";
 
 
-export default function Contacts () {
+export default function Contacts() {
+  const [contacts, setContacts, contact] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost/wordpress/wp-json/wp/v2/contacts`)
+      .then(function (response) {
+        setContacts([...response.data]);
+      });
+  }, []);
+
   return (
-    <div>
-    test
-    </div>
+    <>
+    
 
-  )
+      <div>
+        <table className="table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Avatar</th>
+              <th scope="col">Name</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Email</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {contacts.map((contact) => (
+              <SingleContact
+                key={contact.id}
+                contact={contact}
+                setContacts={setContacts}
+                contacts={contacts}
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
+  );
 }
