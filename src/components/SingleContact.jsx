@@ -52,11 +52,14 @@ export default function SingleContact(props) {
         <td>{contact.acf.phone}</td>
         <td>{contact.acf.email}</td>
         <td>
-        <EditContact contact={contact} setContacts={setContacts} contacts={contacts} />
+          <EditContact
+            contact={contact}
+            setContacts={setContacts}
+            contacts={contacts}
+          />
           {/* <button type="button" className="btn btn-success">
             Edit
           </button> */}
-      
         </td>
         <td>
           <button

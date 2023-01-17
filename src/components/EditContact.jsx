@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 export default function EditContact(props) {
-
   const { contact, setContacts, contacts } = props;
 
   const [name, setName] = useState("");
@@ -9,9 +8,7 @@ export default function EditContact(props) {
   const [email, setEmail] = useState("");
   // const [image, setImage] = useState([]);
 
-  function onSubmitEditForm(e) {
-
-  }
+  function onSubmitEditForm(e) {}
 
   return (
     <>
@@ -104,7 +101,6 @@ export default function EditContact(props) {
                 >
                   Edit a contact
                 </button> */}
-           
               </div>
             </form>
           </div>
