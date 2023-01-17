@@ -10,9 +10,20 @@ export default function Contacts() {
     axios
       .get(`http://localhost/wordpress/wp-json/wp/v2/contacts`)
       .then(function (response) {
+        const data = response.data.sort((a, b) => {
+        if (a.date === b.date) {
+          return 0;
+        } else if (a.date > b.date) {
+          return 1;
+        } else {
+          return -1;
+        }
+      });
         setContacts([...response.data]);
       });
   }, []);
+
+  
 
   return (
     <>
